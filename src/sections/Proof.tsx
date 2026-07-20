@@ -1,55 +1,61 @@
 import Reveal from '@/components/Reveal'
-import CountUp from '@/components/CountUp'
 import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
-import { Play, BadgeCheck, Moon } from 'lucide-react'
+import { CalendarDays, Check, Clapperboard, MoreHorizontal, Play, Send, WandSparkles } from 'lucide-react'
 
-const videos = [
-  { emoji: '🌃', grad: 'from-indigo-950 to-violet-700', views: '1,4M', pinned: true },
-  { emoji: '👻', grad: 'from-red-950 to-orange-600', views: '223K', pinned: true },
-  { emoji: '🕯️', grad: 'from-emerald-950 to-emerald-600', views: '3.997', pinned: false },
+const queue = [
+  { title: 'O mito que mudou uma guerra', niche: 'Mitologia', status: 'Pronto', image: '/assets/niches/mitologia.jpg' },
+  { title: 'O corredor que ninguém atravessa', niche: 'Mistérios', status: 'Gerando', image: '/assets/niches/terror.jpg' },
+  { title: 'A invenção perdida no tempo', niche: 'História', status: 'Agendado', image: '/assets/niches/historia.jpg' },
 ]
 
 export default function Proof() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 text-center">
-      <Reveal>
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">Resultados reais, views de verdade</h2>
-        <p className="mt-3 text-zinc-500">Canais reais alcançando milhões de visualizações com nossa IA.</p>
+    <section className="mx-auto max-w-6xl px-5 py-20 sm:px-6 sm:py-24">
+      <Reveal className="mx-auto max-w-2xl text-center">
+        <p className="section-kicker">Uma operação mais leve</p>
+        <h2 className="section-title">Menos ferramentas. Mais consistência.</h2>
+        <p className="section-copy">Organize ideias, acompanhe a produção e prepare cada publicação sem perder o contexto entre uma etapa e outra.</p>
       </Reveal>
 
-      <Reveal delay={0.15}>
-        <Card className="mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border shadow-2xl shadow-black/10">
-          <div className="grid grid-cols-3 gap-0.5 bg-zinc-950">
-            {videos.map((v, i) => (
-              <div key={i} className={`relative grid aspect-[9/13] place-items-center bg-gradient-to-br ${v.grad} text-5xl`}>
-                {v.pinned && <Badge className="absolute left-2.5 top-2.5 rounded-md bg-rose-500 px-2 py-0.5 text-[10px] font-bold hover:bg-rose-500">Fixado</Badge>}
-                {v.emoji}
-                <span className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 text-sm font-bold text-white drop-shadow">
-                  <Play className="size-3.5 fill-current" /> {v.views}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="flex items-center gap-3 px-5 py-4 text-left">
-            <span className="grid size-10 place-items-center rounded-full bg-gradient-to-br from-zinc-800 to-zinc-600 text-lg text-white"><Moon className="size-5" /></span>
-            <div>
-              <p className="flex items-center gap-1 text-sm font-bold">historiassombrias <BadgeCheck className="size-4 text-violet-500" /></p>
-              <p className="text-xs text-zinc-500">@historiassombrias</p>
+      <Reveal delay={0.1}>
+        <div className="mt-12 overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-xl shadow-zinc-950/[0.06]">
+          <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-4 sm:px-6">
+            <div className="flex items-center gap-3">
+              <span className="grid size-9 place-items-center rounded-lg bg-violet-100 text-violet-700"><Clapperboard className="size-4" /></span>
+              <div><p className="text-sm font-bold">Fila de produção</p><p className="text-xs text-zinc-500">Visão de demonstração</p></div>
             </div>
+            <MoreHorizontal className="size-5 text-zinc-400" aria-hidden="true" />
           </div>
-        </Card>
-      </Reveal>
 
-      <Reveal delay={0.2}>
-        <div className="mt-16 flex flex-wrap justify-center gap-x-20 gap-y-8">
-          <div>
-            <p className="text-4xl font-extrabold tracking-tight text-violet-600 sm:text-5xl"><CountUp target={779370} /></p>
-            <p className="mt-1 text-sm text-zinc-500">canais automatizados</p>
-          </div>
-          <div>
-            <p className="text-4xl font-extrabold tracking-tight text-violet-600 sm:text-5xl"><CountUp target={1924456} /></p>
-            <p className="mt-1 text-sm text-zinc-500">vídeos publicados</p>
+          <div className="grid lg:grid-cols-[1.5fr_0.75fr]">
+            <div className="divide-y divide-zinc-100 p-3 sm:p-5">
+              {queue.map((item, index) => (
+                <div key={item.title} className="grid grid-cols-[52px_1fr_auto] items-center gap-3 rounded-xl px-2 py-3 transition-colors hover:bg-zinc-50 sm:grid-cols-[64px_1fr_auto] sm:gap-4 sm:px-3">
+                  <div className="relative aspect-[9/12] overflow-hidden rounded-lg bg-zinc-900">
+                    <img src={item.image} alt="" loading="lazy" className="h-full w-full object-cover" />
+                    <span className="absolute inset-0 grid place-items-center bg-black/10"><Play className="size-4 fill-white text-white" /></span>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-semibold text-zinc-900 sm:text-base">{item.title}</p>
+                    <p className="mt-1 text-xs text-zinc-500">{item.niche} · Episódio {index + 1}</p>
+                  </div>
+                  <Badge variant="secondary" className={item.status === 'Pronto' ? 'bg-emerald-50 text-emerald-700' : item.status === 'Gerando' ? 'bg-violet-50 text-violet-700' : 'bg-amber-50 text-amber-700'}>{item.status}</Badge>
+                </div>
+              ))}
+            </div>
+
+            <aside className="hidden border-t border-zinc-100 bg-zinc-50/70 p-6 lg:block lg:border-l lg:border-t-0">
+              <p className="text-sm font-bold">Próxima publicação</p>
+              <div className="mt-4 rounded-2xl border border-zinc-200 bg-white p-4">
+                <div className="flex items-center gap-2 text-sm font-semibold"><CalendarDays className="size-4 text-violet-600" /> Hoje, 19:30</div>
+                <div className="mt-4 space-y-3 text-sm text-zinc-600">
+                  <p className="flex items-center gap-2"><Check className="size-4 text-emerald-600" /> Roteiro revisado</p>
+                  <p className="flex items-center gap-2"><WandSparkles className="size-4 text-violet-600" /> Visual preparado</p>
+                  <p className="flex items-center gap-2"><Send className="size-4 text-sky-600" /> Canais selecionados</p>
+                </div>
+              </div>
+              <p className="mt-4 text-xs leading-relaxed text-zinc-500">Exemplo visual do fluxo de produção. Conecte esta área aos dados reais do produto quando o painel estiver disponível.</p>
+            </aside>
           </div>
         </div>
       </Reveal>

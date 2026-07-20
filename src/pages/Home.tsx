@@ -5,6 +5,7 @@ import Proof from '@/sections/Proof'
 import Comparison from '@/sections/Comparison'
 import Testimonials from '@/sections/Testimonials'
 import HowItWorks from '@/sections/HowItWorks'
+import Demo from '@/sections/Demo'
 import CtaBanner from '@/sections/CtaBanner'
 import Faq from '@/sections/Faq'
 import Footer from '@/sections/Footer'
@@ -20,6 +21,7 @@ export default function Home() {
         <Comparison />
         <Testimonials />
         <HowItWorks />
+        <Demo />
         <CtaBanner />
         <Faq />
       </main>

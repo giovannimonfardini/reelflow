@@ -1,50 +1,55 @@
 import Reveal from '@/components/Reveal'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Star } from 'lucide-react'
+import { Building2, CircleUserRound, Layers3, Megaphone, Check } from 'lucide-react'
 
-const testimonials = [
-  { text: 'O conteúdo é de alta qualidade, confiável e sempre envolvente — exatamente o que eu preciso para aumentar views e inscritos.', name: 'Cíntia Duarte', bg: 'bg-violet-500', ini: 'CD' },
-  { text: 'Adoro os diferentes estilos e histórias que eles criam. Ganhei muitas views e novos inscritos. E continuo crescendo!', name: 'Visão Criativa Filmes', bg: 'bg-sky-500', ini: 'VC' },
-  { text: 'Muito fácil de usar e as histórias são interessantes. Ótima forma de entrar no mundo do conteúdo sem todo o trabalho.', name: 'Jorge Mota', bg: 'bg-emerald-500', ini: 'JM' },
-  { text: 'Amei. Facilita muito na hora de postar quando você está sem ideia do que publicar.', name: 'Nana Bandeira', bg: 'bg-amber-500', ini: 'NB' },
-  { text: 'O ReelFlow foi ótimo. Minha página cresceu demais!', name: 'Tomás Alves', bg: 'bg-rose-500', ini: 'TA' },
-  { text: 'É conveniente para quem quer contar histórias mas não quer mostrar o rosto.', name: 'Léo Ribeiro', bg: 'bg-violet-400', ini: 'LR' },
-  { text: 'Projeto muito produtivo, adorei. O suporte é excelente.', name: 'Agnes Costa', bg: 'bg-pink-500', ini: 'AC' },
-  { text: 'Ótimo para quem está começando como criador de conteúdo.', name: 'Josh Martins', bg: 'bg-blue-500', ini: 'JM' },
+const profiles = [
+  {
+    icon: CircleUserRound,
+    title: 'Criador solo',
+    text: 'Para quem quer publicar com frequência sem transformar todos os dias em uma sessão de edição.',
+    items: ['Fluxo guiado', 'Produção recorrente'],
+  },
+  {
+    icon: Megaphone,
+    title: 'Especialista de nicho',
+    text: 'Para transformar conhecimento em séries curtas, reconhecíveis e fáceis de acompanhar.',
+    items: ['Formatos reutilizáveis', 'Identidade consistente'],
+  },
+  {
+    icon: Building2,
+    title: 'Agência enxuta',
+    text: 'Para organizar diferentes canais e reduzir o trabalho operacional entre ideia e entrega.',
+    items: ['Visão centralizada', 'Mais previsibilidade'],
+  },
+  {
+    icon: Layers3,
+    title: 'Portfólio de canais',
+    text: 'Para testar narrativas e temas sem repetir manualmente o mesmo processo em cada perfil.',
+    items: ['Múltiplas séries', 'Escala com controle'],
+  },
 ]
 
-function TCard({ t }: { t: (typeof testimonials)[number] }) {
-  return (
-    <div className="w-80 shrink-0 rounded-2xl border bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
-      <div className="mb-3 flex gap-0.5 text-amber-400">
-        {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="size-3.5 fill-current" />)}
-      </div>
-      <p className="mb-5 text-sm leading-relaxed text-zinc-600">"{t.text}"</p>
-      <div className="flex items-center gap-3">
-        <Avatar className="size-9"><AvatarFallback className={`${t.bg} text-xs font-bold text-white`}>{t.ini}</AvatarFallback></Avatar>
-        <div>
-          <p className="text-sm font-semibold">{t.name}</p>
-          <p className="text-xs text-zinc-400">Criador(a) de conteúdo</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function Testimonials() {
-  const reversed = [...testimonials].reverse()
   return (
-    <section id="depoimentos" className="overflow-hidden py-24">
-      <Reveal className="text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">O que dizem sobre nós</h2>
-        <p className="mt-3 text-zinc-500">Veja o que nossos usuários falam sobre o ReelFlow.</p>
-      </Reveal>
-      <div className="marquee-paused mt-14 space-y-5">
-        <div className="animate-marquee flex w-max gap-5">
-          {[...testimonials, ...testimonials].map((t, i) => <TCard key={i} t={t} />)}
-        </div>
-        <div className="animate-marquee-reverse flex w-max gap-5">
-          {[...reversed, ...reversed].map((t, i) => <TCard key={i} t={t} />)}
+    <section id="para-quem" className="border-y border-zinc-100 bg-zinc-50/70 py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="section-kicker">Para diferentes rotinas</p>
+          <h2 className="section-title">Comece simples. Cresça sem perder o controle.</h2>
+          <p className="section-copy">O mesmo fluxo pode apoiar quem está publicando o primeiro vídeo ou coordenando várias linhas editoriais.</p>
+        </Reveal>
+        <div className="scrollbar-hide -mx-5 mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
+          {profiles.map((profile, index) => (
+            <Reveal key={profile.title} delay={index * 0.06} className="min-w-[82%] snap-center sm:min-w-0">
+              <article className="h-full rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                <span className="grid size-10 place-items-center rounded-xl bg-violet-50 text-violet-700"><profile.icon className="size-5" /></span>
+                <h3 className="mt-5 font-display text-lg font-bold">{profile.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-600">{profile.text}</p>
+                <ul className="mt-5 space-y-2">
+                  {profile.items.map((item) => <li key={item} className="flex items-center gap-2 text-xs font-semibold text-zinc-700"><Check className="size-3.5 text-violet-600" />{item}</li>)}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

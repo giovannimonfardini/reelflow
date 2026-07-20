@@ -2,29 +2,29 @@ import Reveal from '@/components/Reveal'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
 const faqs = [
-  { q: 'O que é uma série?', a: 'Uma série é um conjunto de vídeos automáticos dentro de um nicho que você escolhe. Você define o tema, o estilo e a frequência — a IA gera e publica os vídeos continuamente.' },
-  { q: 'É fácil de usar?', a: 'Sim. Não é preciso nenhuma habilidade técnica ou de edição. Em três passos você configura sua série e a automação começa a trabalhar por você.' },
-  { q: 'Preciso ser especialista em criação de conteúdo?', a: 'Não. O ReelFlow foi feito tanto para iniciantes quanto para criadores experientes. A IA cuida do roteiro, das imagens, da narração e da publicação.' },
-  { q: 'Quais plataformas são suportadas?', a: 'Publicamos automaticamente no TikTok, Instagram Reels e YouTube Shorts. Você pode conectar uma ou várias contas ao mesmo tempo.' },
-  { q: 'É seguro conectar minhas contas?', a: 'Sim. Usamos as APIs oficiais das plataformas e você pode revogar o acesso a qualquer momento diretamente nas configurações de cada rede social.' },
-  { q: 'Quantos vídeos posso criar por mês?', a: 'Depende do seu plano. No plano gratuito você experimenta a ferramenta; nos planos pagos é possível publicar vários vídeos por dia em múltiplas séries.' },
-  { q: 'Como garantir que meus vídeos tenham views?', a: 'Nossa IA é treinada com formatos e ganchos que já provaram performar bem. Combinamos nichos validados, legendas dinâmicas e frequência consistente — os três pilares do crescimento orgânico.' },
-  { q: 'Posso pedir reembolso?', a: 'Sim. Oferecemos garantia de 7 dias. Se não ficar satisfeito, basta falar com nosso suporte e devolvemos seu pagamento integralmente.' },
+  { q: 'O que é uma série?', a: 'É uma linha editorial recorrente. Você define tema, estilo e formato para transformar ideias relacionadas em vídeos que mantêm uma identidade consistente.' },
+  { q: 'É fácil de usar?', a: 'A experiência foi desenhada como um fluxo guiado. Cada etapa apresenta apenas as decisões necessárias naquele momento, reduzindo a complexidade para quem não edita vídeos.' },
+  { q: 'Preciso ser especialista em criação de conteúdo?', a: 'Não. O fluxo atende iniciantes e também pode servir como base para criadores mais experientes que desejam organizar melhor a produção.' },
+  { q: 'Para quais formatos o ReelFlow foi pensado?', a: 'O foco são vídeos verticais curtos, adequados para formatos como Reels, Shorts e TikTok. A disponibilidade de integrações deve acompanhar a evolução do produto.' },
+  { q: 'Posso usar minha própria identidade visual?', a: 'A proposta inclui escolhas de direção visual, voz e trilha para que cada série possa manter uma linguagem reconhecível.' },
+  { q: 'A IA substitui a revisão humana?', a: 'Não recomendamos publicar sem revisão. A automação acelera a produção, mas a aprovação final continua importante para verificar contexto, precisão e tom de voz.' },
+  { q: 'Como aumentar as chances de um vídeo funcionar?', a: 'Não existe garantia de visualizações. Clareza do tema, bons ganchos, consistência, retenção e aprendizado com os resultados continuam sendo os fatores mais importantes.' },
 ]
 
 export default function Faq() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl px-6 pb-28 pt-4">
+    <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-5 pb-24 pt-4 sm:px-6 sm:pb-28">
       <Reveal className="text-center">
-        <h2 className="text-4xl font-extrabold tracking-tight sm:text-[2.75rem]">Perguntas Frequentes</h2>
-        <p className="mt-3 text-zinc-500">Tudo o que você precisa saber sobre o ReelFlow</p>
+        <p className="section-kicker">Tire suas dúvidas</p>
+        <h2 className="section-title">Perguntas frequentes</h2>
+        <p className="section-copy">O essencial para entender a proposta do ReelFlow</p>
       </Reveal>
       <Reveal delay={0.1}>
-        <Accordion type="single" collapsible className="mt-12">
-          {faqs.map((f, i) => (
-            <AccordionItem key={i} value={`item-${i}`}>
-              <AccordionTrigger className="text-left text-[15px] font-semibold hover:no-underline">{f.q}</AccordionTrigger>
-              <AccordionContent className="text-[15px] leading-relaxed text-zinc-500">{f.a}</AccordionContent>
+        <Accordion type="single" collapsible className="mt-10 sm:mt-12">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={faq.q} value={`item-${index}`}>
+              <AccordionTrigger className="text-left text-[15px] font-semibold hover:no-underline">{faq.q}</AccordionTrigger>
+              <AccordionContent className="text-[15px] leading-relaxed text-zinc-500">{faq.a}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
