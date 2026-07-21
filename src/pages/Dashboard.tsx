@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { Clapperboard, LogOut, Plus, Sparkles, Video } from 'lucide-react'
+import { LogOut, Plus, Sparkles, Video } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useAuth } from '@/auth/AuthContext'
 
@@ -23,7 +23,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-zinc-50">
       <header className="border-b border-zinc-200 bg-white">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
-          <Link to="/" className="flex items-center gap-2.5"><span className="grid size-8 place-items-center rounded-lg bg-violet-600 text-white"><Clapperboard className="size-4" /></span><span className="font-display text-lg font-bold">ReelFlow</span></Link>
+          <Link to="/" className="flex items-center" aria-label="Viralizou — início"><img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-10 w-auto object-contain" /></Link>
           <div className="flex items-center gap-3">
             <div className="hidden text-right sm:block"><p className="text-sm font-semibold text-zinc-900">{user?.displayName || 'Criador'}</p><p className="text-xs text-zinc-500">{user?.email}</p></div>
             {user?.photoURL ? <img src={user.photoURL} alt="" referrerPolicy="no-referrer" className="size-9 rounded-full border border-zinc-200" /> : <span className="grid size-9 place-items-center rounded-full bg-violet-100 text-sm font-bold text-violet-700">{user?.displayName?.slice(0, 1) || 'R'}</span>}

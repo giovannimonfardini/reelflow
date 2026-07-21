@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router'
-import { Clapperboard, Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useAuth } from '@/auth/AuthContext'
 
@@ -92,9 +92,8 @@ export default function Login() {
       <div aria-hidden="true" className="pointer-events-none absolute -right-44 bottom-0 size-[480px] rounded-full bg-zinc-100 blur-3xl" />
 
       <div className="relative w-full max-w-[475px]">
-        <Link to="/" className="mx-auto mb-5 flex w-fit items-center gap-2.5 text-zinc-900" aria-label="ReelFlow — voltar ao início">
-          <span className="grid size-9 place-items-center rounded-xl bg-violet-600 text-white shadow-sm shadow-violet-600/20"><Clapperboard className="size-4" /></span>
-          <span className="font-display text-lg font-bold">ReelFlow</span>
+        <Link to="/" className="mx-auto mb-5 flex w-fit items-center text-zinc-900" aria-label="Viralizou — voltar ao início">
+          <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-14 w-auto object-contain" />
         </Link>
 
         <section className="rounded-[18px] border border-zinc-200 bg-white p-6 shadow-xl shadow-zinc-950/[0.08] sm:p-8">

@@ -1,5 +1,5 @@
 import { Separator } from '@/components/ui/separator'
-import { Clapperboard, Heart } from 'lucide-react'
+import { Heart } from 'lucide-react'
 
 const links = [
   { label: 'Como funciona', href: '#como-funciona' },
@@ -14,9 +14,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-14">
         <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-start">
           <div>
-            <a href="#inicio" className="flex items-center gap-2.5" aria-label="ReelFlow — início">
-              <span className="grid size-8 place-items-center rounded-lg bg-violet-600 text-white"><Clapperboard className="size-4" /></span>
-              <span className="font-display text-lg font-bold tracking-tight">ReelFlow</span>
+            <a href="#inicio" className="flex w-fit items-center" aria-label="Viralizou — início">
+              <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-11 w-auto object-contain" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">Um fluxo mais simples para criar e organizar vídeos verticais sem precisar aparecer.</p>
           </div>
@@ -26,7 +25,7 @@ export default function Footer() {
         </div>
         <Separator className="my-8" />
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-zinc-400">
-          <span>© 2026 ReelFlow. Todos os direitos reservados.</span>
+          <span>© 2026 Viralizou. Todos os direitos reservados.</span>
           <span className="flex items-center gap-1.5">Feito com <Heart className="size-3.5 fill-rose-500 text-rose-500" /> para criadores</span>
         </div>
       </div>

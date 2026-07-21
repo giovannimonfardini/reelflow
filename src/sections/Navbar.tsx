@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Clapperboard, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import GoogleSignInButton from '@/components/auth/GoogleSignInButton'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router'
@@ -33,11 +33,8 @@ export default function Navbar() {
   return (
     <header className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${scrolled || open ? 'border-zinc-200/80 bg-white/90 backdrop-blur-xl' : 'border-transparent bg-white/70 backdrop-blur-md'}`}>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-6">
-        <a href="#inicio" className="flex items-center gap-2.5" aria-label="ReelFlow — início">
-          <span className="grid size-8 place-items-center rounded-lg bg-violet-600 text-white shadow-sm shadow-violet-600/20">
-            <Clapperboard className="size-4" aria-hidden="true" />
-          </span>
-          <span className="font-display text-lg font-bold tracking-tight">ReelFlow</span>
+        <a href="#inicio" className="flex shrink-0 items-center" aria-label="Viralizou — início">
+          <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-10 w-auto object-contain" />
         </a>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-zinc-600 md:flex" aria-label="Navegação principal">
