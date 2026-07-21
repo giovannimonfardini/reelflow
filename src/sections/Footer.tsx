@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-start">
           <div>
             <a href="#inicio" className="flex w-fit items-center" aria-label="Viralizou — início">
-              <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-11 w-auto object-contain" />
+              <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-16 w-auto object-contain" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">Um fluxo mais simples para criar e organizar vídeos verticais sem precisar aparecer.</p>
           </div>

@@ -93,7 +93,7 @@ export default function Login() {
 
       <div className="relative w-full max-w-[475px]">
         <Link to="/" className="mx-auto mb-5 flex w-fit items-center text-zinc-900" aria-label="Viralizou — voltar ao início">
-          <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-14 w-auto object-contain" />
+          <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-20 w-auto object-contain" />
         </Link>
 
         <section className="rounded-[18px] border border-zinc-200 bg-white p-6 shadow-xl shadow-zinc-950/[0.08] sm:p-8">

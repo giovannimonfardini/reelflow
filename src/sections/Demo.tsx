@@ -27,7 +27,7 @@ export default function Demo() {
           <div className="mt-12 overflow-hidden rounded-3xl border border-zinc-200 bg-zinc-950 shadow-2xl shadow-zinc-950/15">
             <div className="flex items-center justify-between border-b border-white/10 px-5 py-3 text-white/60">
               <div className="flex gap-1.5" aria-hidden="true"><i className="size-2.5 rounded-full bg-rose-400" /><i className="size-2.5 rounded-full bg-amber-400" /><i className="size-2.5 rounded-full bg-emerald-400" /></div>
-              <p className="text-xs font-medium">Prévia interativa · ReelFlow Studio</p>
+              <p className="text-xs font-medium">Prévia interativa · Viralizou Studio</p>
               <CirclePlay className="size-4" aria-hidden="true" />
             </div>
 

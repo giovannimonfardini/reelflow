@@ -15,7 +15,7 @@ const items = [
   },
   {
     good: true,
-    title: 'ReelFlow',
+    title: 'Viralizou',
     text: 'Organize roteiro, visual, narração e preparação para publicação dentro de uma experiência contínua.',
   },
 ]
