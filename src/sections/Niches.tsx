@@ -1,11 +1,55 @@
+import { useEffect, useRef } from 'react'
+
 const niches = [
-  { label: 'Mitologia', eyebrow: 'Lendas que prendem', image: '/assets/niches/mitologia.jpg' },
-  { label: 'Histórias de terror', eyebrow: 'Suspense em série', image: '/assets/niches/terror.jpg' },
-  { label: 'Fatos históricos', eyebrow: 'O passado em cena', image: '/assets/niches/historia.jpg' },
-  { label: 'IA e tecnologia', eyebrow: 'O futuro explicado', image: '/assets/niches/tecnologia.jpg' },
-  { label: 'Mistérios', eyebrow: 'Perguntas sem resposta', image: '/assets/niches/terror.jpg' },
-  { label: 'Grandes descobertas', eyebrow: 'Histórias que inspiram', image: '/assets/niches/historia.jpg' },
+  { label: 'Mitologia', eyebrow: 'Lendas que prendem', video: '/assets/videos/preview_1.mp4' },
+  { label: 'Fofocas da escola', eyebrow: 'Histórias que viralizam', video: '/assets/videos/preview_2.mp4' },
+  { label: 'Mitologia', eyebrow: 'Heróis e deuses', video: '/assets/videos/preview_3.mp4' },
+  { label: 'Fofocas da escola', eyebrow: 'Drama em episódios', video: '/assets/videos/preview_4.mp4' },
+  { label: 'Histórias assustadoras', eyebrow: 'Suspense em série', video: '/assets/videos/preview_5.mp4' },
+  { label: 'História', eyebrow: 'O passado em cena', video: '/assets/videos/preview_6.mp4' },
+  { label: 'Histórias assustadoras', eyebrow: 'Relatos que prendem', video: '/assets/videos/preview_7.mp4' },
 ]
+
+function NichePreview({ niche }: { niche: (typeof niches)[number] }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !reduceMotion) {
+        void video.play().catch(() => undefined)
+      } else {
+        video.pause()
+      }
+    }, { threshold: 0.35 })
+
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <article className="group relative aspect-[9/16] w-40 shrink-0 overflow-hidden rounded-2xl bg-zinc-900 shadow-md shadow-zinc-950/10 sm:w-48">
+      <video
+        ref={videoRef}
+        src={niche.video}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={`Preview de vídeo: ${niche.label}`}
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/10" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4 text-white">
+        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/70">{niche.eyebrow}</p>
+        <h3 className="mt-1 text-sm font-semibold sm:text-base">{niche.label}</h3>
+      </div>
+    </article>
+  )
+}
 
 export default function Niches() {
   return (
@@ -22,14 +66,7 @@ export default function Niches() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white sm:w-24" />
         <div className="animate-marquee-fast flex w-max gap-4 px-4 sm:gap-5">
           {[...niches, ...niches].map((niche, index) => (
-            <article key={`${niche.label}-${index}`} className="group relative aspect-[9/14] w-40 shrink-0 overflow-hidden rounded-2xl bg-zinc-900 shadow-md shadow-zinc-950/10 sm:w-48">
-              <img src={niche.image} alt="" width="675" height="1200" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/5 to-black/10" />
-              <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/65">{niche.eyebrow}</p>
-                <h3 className="mt-1 text-sm font-semibold sm:text-base">{niche.label}</h3>
-              </div>
-            </article>
+            <NichePreview key={`${niche.video}-${index}`} niche={niche} />
           ))}
         </div>
       </div>
