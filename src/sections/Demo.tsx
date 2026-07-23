@@ -54,8 +54,8 @@ export default function Demo() {
                     <div className="mt-2 rounded-xl border border-violet-200 bg-violet-50/50 px-4 py-3 text-sm font-semibold text-zinc-800">Mistérios que a história não explicou</div>
                     <label className="mt-4 block text-xs font-semibold text-zinc-600">Direção visual</label>
                     <div className="mt-2 grid grid-cols-3 gap-2">
-                      {['/assets/niches/terror.jpg', '/assets/niches/historia.jpg', '/assets/niches/mitologia.jpg'].map((image, index) => (
-                        <button type="button" key={image} onClick={() => setActive(1)} className={`relative aspect-square overflow-hidden rounded-lg border-2 ${index === active % 3 ? 'border-violet-600' : 'border-transparent'}`} aria-label={`Selecionar estilo ${index + 1}`}><img src={image} alt="" className="h-full w-full object-cover" /></button>
+                      {['/assets/niches/terror.webp', '/assets/niches/historia.webp', '/assets/niches/mitologia.webp'].map((image, index) => (
+                        <button type="button" key={image} onClick={() => setActive(1)} className={`relative aspect-square overflow-hidden rounded-lg border-2 ${index === active % 3 ? 'border-violet-600' : 'border-transparent'}`} aria-label={`Selecionar estilo ${index + 1}`}><img src={image} alt="" width="480" height="854" loading="lazy" decoding="async" className="h-full w-full object-cover" /></button>
                       ))}
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -64,7 +64,7 @@ export default function Demo() {
                     </div>
                   </div>
                   <div className="relative mx-auto aspect-[9/15] w-36 overflow-hidden rounded-xl bg-zinc-900 shadow-md sm:w-full">
-                    <img src="/assets/niches/terror.jpg" alt="Prévia de vídeo vertical sobre mistérios" className="h-full w-full object-cover" />
+                    <img src="/assets/niches/terror.webp" alt="Prévia de vídeo vertical sobre mistérios" width="480" height="854" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
                     <span className="absolute left-3 top-3 rounded-full bg-black/35 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-white backdrop-blur">Prévia</span>
                     <p className="absolute inset-x-3 bottom-12 text-center text-sm font-black leading-tight text-white drop-shadow">O corredor que desapareceu dos mapas</p>

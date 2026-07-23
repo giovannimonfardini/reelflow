@@ -12,13 +12,30 @@ const links = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(() => typeof window !== 'undefined' && window.scrollY > 8)
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    let frame = 0
+    let lastValue = window.scrollY > 8
+
+    const onScroll = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(() => {
+        const nextValue = window.scrollY > 8
+        if (nextValue !== lastValue) {
+          lastValue = nextValue
+          setScrolled(nextValue)
+        }
+        frame = 0
+      })
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame) window.cancelAnimationFrame(frame)
+    }
   }, [])
 
   useEffect(() => {
@@ -34,7 +51,7 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 w-full border-b transition-colors duration-300 ${scrolled || open ? 'border-zinc-200/80 bg-white/90 backdrop-blur-xl' : 'border-transparent bg-white/70 backdrop-blur-md'}`}>
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-6">
         <a href="#inicio" className="flex shrink-0 items-center" aria-label="Viralizou — início">
-          <img src="/assets/logos/logoviralizou.png" alt="Viralizou" className="h-14 w-auto object-contain sm:h-16" />
+          <img src="/assets/logos/logoviralizou.webp" alt="Viralizou" width="480" height="204" decoding="async" className="h-14 w-auto object-contain sm:h-16" />
         </a>
 
         <nav className="hidden items-center gap-7 text-sm font-medium text-zinc-600 md:flex" aria-label="Navegação principal">

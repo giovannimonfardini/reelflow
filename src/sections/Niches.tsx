@@ -20,6 +20,10 @@ function NichePreview({ niche }: { niche: (typeof niches)[number] }) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting && !reduceMotion) {
+        if (!video.src) {
+          video.src = niche.video
+          video.load()
+        }
         void video.play().catch(() => undefined)
       } else {
         video.pause()
@@ -28,17 +32,16 @@ function NichePreview({ niche }: { niche: (typeof niches)[number] }) {
 
     observer.observe(video)
     return () => observer.disconnect()
-  }, [])
+  }, [niche.video])
 
   return (
     <article className="group relative aspect-[9/16] w-40 shrink-0 overflow-hidden rounded-2xl bg-zinc-900 shadow-md shadow-zinc-950/10 sm:w-48">
       <video
         ref={videoRef}
-        src={niche.video}
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         aria-label={`Preview de vídeo: ${niche.label}`}
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"
       />

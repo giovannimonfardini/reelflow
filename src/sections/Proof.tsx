@@ -3,9 +3,9 @@ import { Badge } from '@/components/ui/badge'
 import { CalendarDays, Check, Clapperboard, MoreHorizontal, Play, Send, WandSparkles } from 'lucide-react'
 
 const queue = [
-  { title: 'O mito que mudou uma guerra', niche: 'Mitologia', status: 'Pronto', image: '/assets/niches/mitologia.jpg' },
-  { title: 'O corredor que ninguém atravessa', niche: 'Mistérios', status: 'Gerando', image: '/assets/niches/terror.jpg' },
-  { title: 'A invenção perdida no tempo', niche: 'História', status: 'Agendado', image: '/assets/niches/historia.jpg' },
+  { title: 'O mito que mudou uma guerra', niche: 'Mitologia', status: 'Pronto', image: '/assets/niches/mitologia.webp' },
+  { title: 'O corredor que ninguém atravessa', niche: 'Mistérios', status: 'Gerando', image: '/assets/niches/terror.webp' },
+  { title: 'A invenção perdida no tempo', niche: 'História', status: 'Agendado', image: '/assets/niches/historia.webp' },
 ]
 
 export default function Proof() {
@@ -32,7 +32,7 @@ export default function Proof() {
               {queue.map((item, index) => (
                 <div key={item.title} className="grid grid-cols-[52px_1fr_auto] items-center gap-3 rounded-xl px-2 py-3 transition-colors hover:bg-zinc-50 sm:grid-cols-[64px_1fr_auto] sm:gap-4 sm:px-3">
                   <div className="relative aspect-[9/12] overflow-hidden rounded-lg bg-zinc-900">
-                    <img src={item.image} alt="" loading="lazy" className="h-full w-full object-cover" />
+                    <img src={item.image} alt="" width="480" height="854" loading="lazy" decoding="async" className="h-full w-full object-cover" />
                     <span className="absolute inset-0 grid place-items-center bg-black/10"><Play className="size-4 fill-white text-white" /></span>
                   </div>
                   <div className="min-w-0">
