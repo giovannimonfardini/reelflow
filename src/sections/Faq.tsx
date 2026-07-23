@@ -13,7 +13,7 @@ const faqs = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="mx-auto max-w-3xl scroll-mt-20 px-5 pb-24 pt-4 sm:px-6 sm:pb-28">
+    <section className="mx-auto max-w-3xl px-5 pb-24 pt-4 sm:px-6 sm:pb-28">
       <Reveal className="text-center">
         <p className="section-kicker">Tire suas dúvidas</p>
         <h2 className="section-title">Perguntas frequentes</h2>

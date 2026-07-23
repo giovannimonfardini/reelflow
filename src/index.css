@@ -96,7 +96,7 @@
 }
 .reveal[data-visible='true'] { opacity: 1; transform: translateY(0); }
 
-main > section:not(:first-child) {
+.deferred-section {
   content-visibility: auto;
   contain-intrinsic-size: auto 720px;
 }

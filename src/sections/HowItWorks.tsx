@@ -77,7 +77,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="scroll-mt-20 bg-zinc-50/70 py-20 sm:py-24">
+    <section className="bg-zinc-50/70 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-kicker">Como funciona</p>

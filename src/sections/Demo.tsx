@@ -15,7 +15,7 @@ export default function Demo() {
   const current = stages[active]
 
   return (
-    <section id="demo" className="scroll-mt-20 px-5 py-20 sm:px-6 sm:py-24">
+    <section className="px-5 py-20 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-kicker">Veja em ação</p>
